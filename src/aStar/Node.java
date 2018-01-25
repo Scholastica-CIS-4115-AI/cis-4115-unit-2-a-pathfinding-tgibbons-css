@@ -11,7 +11,7 @@ public class Node implements Comparable<Node> {
         boolean visited;
         public double distanceFromStart;			// distance from Start node to this node
         public double heuristicDistanceToGoal;			// estimated distance from node to Goal node
-        public double TotalDistanceFromGoal;			// estimated distance from start to Goal node going through this node, TotalDistanceFromGoal = heuristicDistanceToGoal + distanceFromStart
+        public double TotalDistance;			// estimated distance from start to Goal node going through this node, TotalDistanceFromGoal = heuristicDistanceToGoal + distanceFromStart
         Node previousNode;					// previous node in the path to this node.  How did we get to this node.
         public int nodeNum;					// the number of this node on the map
         public double x;					// x coordinate of this node
@@ -97,9 +97,9 @@ public class Node implements Comparable<Node> {
         // Compare this node with another node using TotalDistanceFromGoal.
         //  Used by Collections.sort to sort the list in order by total distance
         public int compareTo(Node otherNode) {               
-                if (TotalDistanceFromGoal < otherNode.TotalDistanceFromGoal) {
+                if (TotalDistance < otherNode.TotalDistance) {
                         return -1;
-                } else if (TotalDistanceFromGoal > otherNode.TotalDistanceFromGoal) {
+                } else if (TotalDistance > otherNode.TotalDistance) {
                         return 1;
                 } else {
                         return 0;
